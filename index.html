@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Afazeres</title>
+
+    <style>
+        *{padding:0;margin:0;font-family:'Segoe UI',Tahoma,Verdana,sans-serif;font-weight: bold;}
+
+        /*Tabela*/
+        table{width: 100%;}
+        th{background-color: orange;color: white;font-size: 25px;text-shadow: 2px 2px 2px #00000060;}
+        td{font-size: 20px;}
+        th, tr, td{height: 50px;border: 2px solid black;text-align: center;}
+
+        /*Classes*/
+        .fazer{
+            background-color: #bd1f1f;text-shadow: 2px 2px 2px #00000060;color: white;
+        }
+
+        .feito, #final{
+            background-color: #00b700;text-shadow: 2px 2px 2px #00000060;color: white;
+        }
+
+        #final{
+            display: none;
+        }
+    
+    </style>
+
+    <!--Font Awesone-->
+    <script src="https://kit.fontawesome.com/4fe87b1342.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <table id="lista">
+        <tr>
+            <th>Afazares</th>
+            <th>Hora</th>
+            <th>Feitos</th>
+        </tr>
+        <tr>
+            <td>Estudar Programação</td>
+            <td>13:30</td>
+            <td onclick="atividadeFeita1(), analise()" class="fazer">
+                <i id="1" class="fa-solid fa-x"></i>
+                <span class="fa-solid span"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Ler Livro</td>
+            <td>15:00</td>
+            <td onclick="atividadeFeita2(), analise()" class="fazer">
+                <i id="2" class="fa-solid fa-x"></i>
+                <span class="fa-solid span"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Estudar Inglês</td>
+            <td>16:30</td>
+            <td onclick="atividadeFeita3(), analise()" class="fazer">
+                <i id="3" class="fa-solid fa-x"></i>
+                <span class="fa-solid span"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Exercícios</td>
+            <td>19:00</td>
+            <td onclick="atividadeFeita4(), analise()" class="fazer">
+                <i id="4" class="fa-solid fa-x"></i>
+                <span class="fa-solid span"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" id="final" class="fa-solid" style="letter-spacing: 2px;">Tudo foi feito!!</td>
+        </tr>
+    </table>
+
+    <script>
+
+        let lista = document.getElementById('lista')
+        let revisao = 0
+        
+        let classesHTML = document.getElementsByClassName('fazer')
+        let classesArray = Array(...classesHTML)
+
+        let iconesHTML = document.getElementsByClassName('fa-x')
+        let iconesArray = Array(...iconesHTML)
+
+        let spanHTML = document.getElementsByClassName('span')
+        let spanArray = Array(...spanHTML)
+
+        spanArray.forEach(function(d){
+            d.innerHTML = 'Faltando'
+        })
+
+        console.log(botoes)
+
+        function atividadeFeita1(){
+    
+            classesArray[0].classList.remove('fazer')
+            classesArray[0].classList.add('feito')
+
+            iconesArray[0].classList.remove('fa-x')
+            iconesArray[0].classList.add('fa-check')
+
+            spanArray[0].innerHTML = 'Feito'
+                
+        }
+
+        function atividadeFeita2(){
+    
+            classesArray[1].classList.remove('fazer')
+            classesArray[1].classList.add('feito')
+
+            iconesArray[1].classList.remove('fa-x')
+            iconesArray[1].classList.add('fa-check')
+
+            spanArray[1].innerHTML = 'Feito'
+                
+        }
+
+        function atividadeFeita3(){
+            
+            classesArray[2].classList.remove('fazer')
+            classesArray[2].classList.add('feito')
+
+            iconesArray[2].classList.remove('fa-x')
+            iconesArray[2].classList.add('fa-check')
+
+            spanArray[2].innerHTML = 'Feito'
+                
+        }
+
+        function atividadeFeita4(){
+            
+            classesArray[3].classList.remove('fazer')
+            classesArray[3].classList.add('feito')
+
+            iconesArray[3].classList.remove('fa-x')
+            iconesArray[3].classList.add('fa-check')
+
+            spanArray[3].innerHTML = 'Feito'
+                
+        }
+
+        function analise(){
+            if(spanArray[0].innerHTML == 'Feito' && spanArray[1].innerHTML == 'Feito' && spanArray[2].innerHTML == 'Feito' && spanArray[3].innerHTML == 'Feito' && revisao == 0){
+            
+                let bloco = document.getElementById('final')
+                bloco.style.display = 'table-cell'
+                
+            } 
+
+        }
+    </script>
+
+</body>
+</html>
